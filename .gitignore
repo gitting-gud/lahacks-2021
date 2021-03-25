@@ -9,5 +9,7 @@ frontend/app/*.mobileprovision
 frontend/app/*.orig.*
 frontend/app/web-build/
 
+node_modules
+
 # macOS
 frontend/app/.DS_Store
