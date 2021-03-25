@@ -1,15 +1,16 @@
-frontend/app/node_modules/**/*
-frontend/app/.expo/*
-frontend/app/npm-debug.*
-frontend/app/*.jks
-frontend/app/*.p8
-frontend/app/*.p12
-frontend/app/*.key
-frontend/app/*.mobileprovision
-frontend/app/*.orig.*
-frontend/app/web-build/
+app/node_modules/*
+app/.expo/
+app/.expo-shared/*
+app/npm-debug.*
+app/*.jks
+app/*.p8
+app/*.p12
+app/*.key
+app/*.mobileprovision
+app/*.orig.*
+app/web-build/
 
 node_modules
 
 # macOS
-frontend/app/.DS_Store
+app/.DS_Store
