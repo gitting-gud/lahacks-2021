@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import UserScreen from './screens/UserScreen';
 import BizScreen from './screens/BizScreen';
+import UserStamping from './screens/UserStamping';
+import BizStamping from './screens/BizStamping';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,8 @@ export default function App() {
         />
         <Stack.Screen name="UserScreen" component={UserScreen} />
         <Stack.Screen name="BizScreen" component={BizScreen} />
+        <Stack.Screen name="UserStamping" component={UserStamping} />
+        <Stack.Screen name="BizStamping" component={BizStamping} />
       </Stack.Navigator>
     </NavigationContainer>
   );
