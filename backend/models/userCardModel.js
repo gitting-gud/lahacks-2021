@@ -14,3 +14,5 @@ const userCardTemplate = new mongoose.Schema({
         required:true
     }
 })
+
+module.exports = mongoose.model('userCard', userCardTemplate)

@@ -18,3 +18,6 @@ const stampTemplate = new mongoose.Schema({
         default:Date.now
     }
 })
+
+const Stamp = mongoose.model('stamps', stampTemplate);
+module.exports = Stamp;

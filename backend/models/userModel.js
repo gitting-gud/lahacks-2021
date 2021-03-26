@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const userTemplate = new mongoose.Schema({
-    uuid:{
+    email:{
         type:String,
         required:true
     },
@@ -9,3 +9,6 @@ const userTemplate = new mongoose.Schema({
         type:Array,
     }
 })
+
+const User = mongoose.model('users', userTemplate);
+module.exports = User;

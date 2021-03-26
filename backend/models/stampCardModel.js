@@ -33,7 +33,11 @@ const stampCardTemplate = new mongoose.Schema({
         type:String,
         required:true
     },
-
     //stretch goal
-    stamp_icon:{}
+    stamp_icon:{
+
+    }
 })
+
+const stampCard = mongoose.model('stampCard', stampCardTemplate);
+module.exports = stampCard;

@@ -1,0 +1,6 @@
+POST http://localhost:4000/api/users/newUser
+Content-Type: application/json
+
+{
+    "email": "ayutheepic@gmail.com"
+}

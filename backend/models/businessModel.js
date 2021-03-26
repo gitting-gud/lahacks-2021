@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const businessTemplate = new mongoose.Schema({
-    uuid:{
-        type:String,
-        required:true
-    },
+    // uuid:{
+    //     type:String,
+    //     required:true
+    // },
     name:{
         type:String,
         required:true
@@ -30,3 +30,6 @@ const businessTemplate = new mongoose.Schema({
         type:Number
     }
 })
+
+const Business = mongoose.model('businesses', businessTemplate);
+module.exports = Business;
