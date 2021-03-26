@@ -10,14 +10,14 @@ const UserScreen = ({ navigation }) => {
       }}>
       <Text>This is the user screen!</Text>
       <Button
-      title="Go to UserScreen"
+      title="Go to HomeScreen"
       onPress={() =>
         navigation.navigate('HomeScreen', /* { name: 'Jane' } */)
       }></Button>
       <Button
-      title="Go to BizScreen"
+      title="Go to UserStampingScreen"
       onPress={() =>
-        navigation.navigate('BizScreen', /* { name: 'Jane' } */)
+        navigation.navigate('UserStamping', /* { name: 'Jane' } */)
       }></Button>
     </View>
   );
