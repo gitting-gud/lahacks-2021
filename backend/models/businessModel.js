@@ -1,33 +1,29 @@
 const mongoose = require('mongoose')
 
 const businessTemplate = new mongoose.Schema({
-    // uuid:{
-    //     type:String,
-    //     required:true
-    // },
-    name:{
-        type:String,
-        required:true
+    name: {
+        type: String,
+        required: true
     },
-    address:{
-        type:String,
-        required:true
+    address: {
+        type: String,
+        required: true
     },
-    campaigns:{
+    campaigns: {
         type: Array,
-        required:true
+        required: true
     },
-    pending:{
+    pending: {
         type: Array,
-        required:true
+        required: true
     },
     //stretch goal
-    icon:{},
-    lat:{
-        type:Number
+    icon: {},
+    lat: {
+        type: Number
     },
-    long:{
-        type:Number
+    long: {
+        type: Number
     }
 })
 

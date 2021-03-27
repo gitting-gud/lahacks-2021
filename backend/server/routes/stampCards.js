@@ -30,4 +30,15 @@ router.post('/newStampCard', async (req, res) => {
     res.status(200).json({ newStampCard });
 })
 
+router.get('/getParticipantBusinesses', async (req, res) => {
+    if (!req.query.stampCardId) {
+        res.status(400).json({ error: 'Invalid input' });
+    } else {
+        StampCard.findOne({ _id: req.query.stampCardId }, function (err, result) {
+            if (err) { throw err; }
+            res.status(200).send(result.participants);
+        })
+    }
+})
+
 module.exports = router;
