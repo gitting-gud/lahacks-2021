@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const stampCardTemplate = new mongoose.Schema({
-    uuid:{
-        type:String,
-        required:true
-    },
+    // uuid:{
+    //     type:String,
+    //     required:true
+    // },
     reward_name:{
         type:String,
         required:true
@@ -22,11 +22,11 @@ const stampCardTemplate = new mongoose.Schema({
         required:true,
     },
     start_date:{
-        type:String,
+        type:Date,
         required:true
     },
     end_date:{
-        type:String,
+        type:Date,
         required:true
     },
     reward_details:{
