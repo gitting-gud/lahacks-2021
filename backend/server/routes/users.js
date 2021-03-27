@@ -13,17 +13,12 @@ router.post('/newStamp', async (req, res) => {
             campaign: req.query.campaign,
             business: req.query.business
         })
-        newStamp.save(function (err, stamp) {
+        newStamp.save(async function (err, stamp) {
             const newStampId = stamp._id;
-            User.updateOne({ _id: newStamp.user },
+            await User.updateOne({ _id: req.query.user },
                 {
                     $addToSet: { active_cards: newStampId }
-                }, function (err, stamp) {
-                    if(err) {
-                        throw err;
-                    }
                 })
-            console.log("completed")
         });
         res.status(200).json({ newStamp });
     }
