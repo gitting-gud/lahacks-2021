@@ -9,27 +9,29 @@ const HomeScreen = ({ navigation }) => {
     <>
       <View style={{
           flex: 1,
-          gap: '1rem',
+          gap: 10,
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          height: '100%',
+          width: '100%',
         }}>
         <Text style={{
-          fontSize: '2rem',
+          fontSize: 20,
         }}>
           [App Name]
         </Text>
         <Button
           title="Login"
           onPress={() => navigation.navigate('UserScreen', /* { name: 'Jane' } */)}
-          style={{width: '50vw'}}
+          style={{width: '50%'}}
         />
       </View>
       <Text
         onPress={() => navigation.navigate('BizScreen', /* { name: 'Jane' } */)}
         style={{
-          position: 'fixed',
-          right: '2rem',
-          bottom: '2rem',
+          position: 'absolute',
+          right: 20,
+          bottom: 20,
         }}
       >
         Login as a business
