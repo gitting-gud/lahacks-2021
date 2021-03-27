@@ -1,86 +1,38 @@
 import React, {useState, useEffect} from 'react';
-import { Camera } from 'expo-camera';
+import BizStamping from '../components/BizStamping';
 import { View, Text, Button } from 'react-native';
-import * as Permissions from 'expo-permissions';
 
-import styles from './styles';
-//import Toolbar from './toolbar.component';
-//import Gallery from './gallery.component';
+const BizStampingScreen = ({ navigation }) => {
 
-export default class BizStampingScreen extends React.Component {
-    camera = null;
-
-    state = {
-        captures: [],
-        capturing: null,
-        data: 'Scanning...',
-        hasCameraPermission: null,
-        cameraType: Camera.Constants.Type.back,
-        flashMode: Camera.Constants.FlashMode.off,
-    };
-
-    // setQrData = (scannedData) => this.setState({data: scannedData})
-    setFlashMode = (flashMode) => this.setState({ flashMode });
-    setCameraType = (cameraType) => this.setState({ cameraType });
-    handleCaptureIn = () => this.setState({ capturing: true });
-
-    handleCaptureOut = () => {
-        if (this.state.capturing)
-            this.camera.stopRecording();
-    };
-
-    handleShortCapture = async () => {
-        const photoData = await this.camera.takePictureAsync();
-        this.setState({ capturing: false, captures: [photoData, ...this.state.captures] })
-    };
-
-    handleLongCapture = async () => {
-        const videoData = await this.camera.recordAsync();
-        this.setState({ capturing: false, captures: [videoData, ...this.state.captures] });
-    };
-
-    async componentDidMount() {
-        const camera = await Permissions.askAsync(Permissions.CAMERA);
-        const audio = await Permissions.askAsync(Permissions.AUDIO_RECORDING);
-        const hasCameraPermission = (camera.status === 'granted' && audio.status === 'granted');
-        this.setState({ hasCameraPermission });
-    };
-
-    render() {
-        const { hasCameraPermission, flashMode, cameraType, capturing, captures } = this.state;
-
-        if (hasCameraPermission === null) {
-            return <View />;
-        } else if (hasCameraPermission === false) {
-            return <Text>Access to camera has been denied.</Text>;
-        }
-
-        return (
-          <View style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <Camera
-              type={cameraType}
-              flashMode={flashMode}
-              style={styles.preview}
-              ref={camera => this.camera = camera}
-              onBarCodeScanned={value => this.setState({data: value.data})}
-            />
-          <Text>This is the business screen!</Text>
-          <Button
+  const [data, setData] = useState('Scanning...');
+  const displayData = (data) => {
+    // get text value, check to make sure it is in database, then enable stamp button
+    setData(data.data);
+  }
+  return (
+    <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+      <Text>This is the business stamping screen!</Text>
+      <BizStamping
+        readData={displayData}
+      />
+      <Button
           title="Go to HomeScreen"
           onPress={() =>
             navigation.navigate('HomeScreen', /* { name: 'Jane' } */)
           }></Button>
           <Button
-          title="Go to UserScreen"
+          title="Stamp"
           onPress={() =>
+            // deliver stamp 
             navigation.navigate('UserScreen', /* { name: 'Jane' } */)
           }></Button>
-          <Text>{this.state.data}</Text>
-        </View>
-        );
-    };
-};
+          <Text>{data}</Text>
+    </View>
+  );
+}
+
+export default BizStampingScreen;

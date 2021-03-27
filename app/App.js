@@ -14,11 +14,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
-          options={{ title: 'Welcome' }}
-        />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: 'Welcome' }} />
         <Stack.Screen name="UserScreen" component={UserScreen} />
         <Stack.Screen name="BizScreen" component={BizScreen} />
         <Stack.Screen name="UserStamping" component={UserStamping} />
