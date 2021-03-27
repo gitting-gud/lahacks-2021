@@ -6,6 +6,8 @@ const cors = require('cors');
 const users = require('./routes/users');
 const businesses = require('./routes/businesses');
 const stampCards = require('./routes/stampCards');
+const stamps = require('./routes/stamps');
+const userCards = require('./routes/userCards');
 const app = express();
 
 const url = `mongodb+srv://ayu:kEALvf9GlP2p52Zf@lahacks.dqfhp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -16,6 +18,8 @@ app.use(express.json());
 app.use('/api/users', users);
 app.use('/api/businesses', businesses);
 app.use('/api/stampCards', stampCards);
+app.use('/api/stamps', stamps);
+app.use('/api/userCards', userCards);
 
 mongoose.connect(url, {
     useNewUrlParser: true,

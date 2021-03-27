@@ -11,14 +11,14 @@ router.post('/newBusiness', async(req, res) => {
             address: req.query.address,
             campaigns: [],
             pending: []
-        })
-        newBusiness.save()
-        .then(data => {
-            res.json(data)
-        })
-        .catch(error => {
-            res.json(error)
-        })
+        });
+        newBusiness.save(function(err, data) {
+            if(err) {
+                console.log(err)
+            } else {
+                console.log(data)
+            }
+        });
     }
 })
 

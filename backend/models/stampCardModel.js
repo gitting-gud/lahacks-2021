@@ -18,15 +18,15 @@ const stampCardTemplate = new mongoose.Schema({
         required:true
     },
     participants:{
-        type:Number,
+        type:Array,
         required:true,
     },
     start_date:{
-        type:Date,
+        type:String,
         required:true
     },
     end_date:{
-        type:Date,
+        type:String,
         required:true
     },
     reward_details:{
