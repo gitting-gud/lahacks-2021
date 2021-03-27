@@ -14,22 +14,25 @@ router.post('/giveStamp', async (req, res) => {
             campaign: req.query.campaign,
             business: req.query.business
         })
+
+        let completedCard = false;
         newStamp.save(async function (err, stamp) {
+            console.log(stamp)
             const newStampId = stamp._id;
-            await UserCard.updateOne({ user: newStamp.user, campaign: newStamp.campaign},
+            console.log(newStampId)
+            await UserCard.updateOne({ user: newStamp.user, campaign: newStamp.campaign },
                 {
                     $addToSet: { entries: newStampId }
                 })
-        });
-        UserCard.find({ user: newStamp.user, campaign: newStamp.campaign}, function(err, result) {
-            if(err) {throw err;}
-            const numberStamps = result.entries.length;
-            StampCard.find({_id: newStamp.campaign}, function(err, result) {
-                if(err) {throw err;}
-                const complete = (numberStamps == result.num_stamps);
-                res.status(200).json({ numStamps: numberStamps, isComplete: complete});
+            UserCard.findOne({ user: newStamp.user, campaign: newStamp.campaign }, function (err, result) {
+                const stamps = result.entries.length;
+                StampCard.findOne({ _id: newStamp.campaign }, function (err, result) {
+                    if (err) { throw err; }
+                    const completedCard = (stamps == result.num_stamps)
+                    res.status(200).json({ numStamps: stamps, isComplete: completedCard })
+                })
             })
-        })
+        });
     }
 })
 

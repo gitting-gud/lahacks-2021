@@ -4,11 +4,7 @@ import styles from '../screens/styles';
 import { View, Text, Button } from 'react-native';
 import * as Permissions from 'expo-permissions';
 
-// import styles from './styles';
-//import Toolbar from './toolbar.component';
-//import Gallery from './gallery.component';
-
-export default class BizStampingScreen extends React.Component {
+export default class CameraObject extends React.Component {
 
     camera = null;
 

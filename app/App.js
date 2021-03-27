@@ -7,6 +7,7 @@ import BizScreen from './screens/BizScreen';
 import UserStamping from './screens/UserStamping';
 import BizStamping from './screens/BizStamping';
 import StampCardScreen from './screens/StampCardScreen'
+import MapScreen from './screens/MapScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="UserStamping" component={UserStamping} />
         <Stack.Screen name="BizStamping" component={BizStamping} />
         <Stack.Screen name="StampCardScreen" component={StampCardScreen} />
+        <Stack.Screen name="MapScreen" component={MapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
