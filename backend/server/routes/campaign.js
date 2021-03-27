@@ -6,7 +6,7 @@ const StampCard = require('../../models/stampCardModel');
 
 router.post('/giveStamp', async (req, res) => {
     if (!req.query.user || !req.query.campaign || !req.query.business) {
-        res.status(400).json({ error: 'Invalid input' });
+        res.status(400).json({ error: 'Invalid Input' });
     }
     else {
         const newStamp = new Stamp({
