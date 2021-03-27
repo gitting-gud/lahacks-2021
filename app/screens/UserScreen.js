@@ -15,9 +15,9 @@ const UserScreen = ({ navigation }) => {
         navigation.navigate('HomeScreen', /* { name: 'Jane' } */)
       }></Button>
       <Button
-      title="Go to UserStampingScreen"
+      title="Go to StampCardScreen"
       onPress={() =>
-        navigation.navigate('UserStamping', /* { name: 'Jane' } */)
+        navigation.navigate('StampCardScreen', /* { name: 'Jane' } */)
       }></Button>
     </View>
   );
