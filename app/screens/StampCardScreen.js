@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, Button, Image } from 'react-native';
+import { Text, Button } from 'react-native-elements';
+import { View, Image, StyleSheet } from 'react-native'
 
 const StampCardScreen = ({ navigation }) => {
     return (
-        <View>
-            <Text>
+        <View style={styles.container}>
+            <Text h1>
                 Business Name
             </Text>
             <Text>
@@ -20,5 +21,12 @@ const StampCardScreen = ({ navigation }) => {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "space-evenly",
+        alignItems: "center"
+    },
+});
 
 export default StampCardScreen;
