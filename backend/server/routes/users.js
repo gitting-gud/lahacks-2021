@@ -19,7 +19,7 @@ router.get('/getUserCards', async (req, res) => {
     if (!req.query.user) {
         res.status(400).json({ error: 'Invalid input' });
     } else {
-        User.find({ _id: req.query.user }, function (err, user) {
+        User.findOne({ _id: req.query.user }, function (err, user) {
             if (err) { throw err; }
             else {
                 res.status(200).send(user.active_cards)
