@@ -25,6 +25,7 @@ const HomeScreen = ({ navigation }) => {
           onPress={() => navigation.navigate('UserScreen', /* { name: 'Jane' } */)}
           style={{width: '50%'}}
         />
+        <Button onPress={() => navigation.navigate('MapScreen')} />
       </View>
       <Text
         onPress={() => navigation.navigate('BizScreen', /* { name: 'Jane' } */)}
