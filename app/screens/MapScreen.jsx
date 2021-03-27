@@ -100,6 +100,12 @@ const MapScreen = () => {
           activeDotIndex={ind}
           carouselRef={carouselRef}
           tappableDots={true}
+          dotStyle={{
+            width: 12,
+            height: 12,
+            borderRadius: 6,
+          }}
+          inactiveDotScale={0.8}
         />
       </View>
     </View>
