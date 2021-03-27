@@ -4,8 +4,8 @@
   "description": "A Modern Rewards System",
   "main": "server.js",
   "scripts": {
-    "start": "node ./backend/server/server.js",
-    "server": "nodemon ./backend/server/server.js",
+    "start": "node ./server/server.js",
+    "server": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
