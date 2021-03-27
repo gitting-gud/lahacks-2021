@@ -6,7 +6,7 @@ const cors = require('cors');
 const users = require('./routes/users');
 const businesses = require('./routes/businesses');
 const stampCards = require('./routes/stampCards');
-const stamps = require('./routes/stamps');
+const campaigns = require('./routes/campaign');
 const userCards = require('./routes/userCards');
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use('/api/users', users);
 app.use('/api/businesses', businesses);
 app.use('/api/stampCards', stampCards);
-app.use('/api/stamps', stamps);
+app.use('/api/campaign', campaigns);
 app.use('/api/userCards', userCards);
 
 mongoose.connect(url, {
