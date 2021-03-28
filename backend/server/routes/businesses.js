@@ -22,4 +22,15 @@ router.post('/newBusiness', async(req, res) => {
     }
 })
 
+router.get('/getBusiness', async (req, res) => {
+    if (!req.query.businessId){
+        res.status(400).json({error: 'Invalid input'});
+    } else {
+        Business.findOne({ _id: req.query.businessId }, function (err, result) {
+            if (err) { res.status(400) }
+            console.log(result)
+            res.status(200).send(result);
+        })
+    }
+})
 module.exports = router;

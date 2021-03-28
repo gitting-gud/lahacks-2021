@@ -54,7 +54,7 @@ const BizStampingScreen = ({ navigation }) => {
         title="Stamp"
         onPress={() =>
         // deliver stamp 
-        navigation.navigate('UserScreen', /* { name: 'Jane' } */)
+        navigation.navigate('BizScreen', /* { name: 'Jane' } */)
       }></Button>
     </View>
   );

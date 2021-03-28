@@ -41,4 +41,14 @@ router.get('/getParticipantBusinesses', async (req, res) => {
     }
 })
 
+router.get('/getStampCard', async (req, res) => {
+    if (!req.query.stampCardId) {
+        res.status(400).json({ error: 'Invalid input' });
+    } else {
+        StampCard.findOne({ _id: req.query.stampCardId }, function (err, result) {
+            if (err) { res.status(400) }
+            res.status(200).send(result);
+        })
+    }
+})
 module.exports = router;
