@@ -19,14 +19,14 @@ const MapScreen = ({ navigation }) => {
     longitudeDelta: 0.05,
   });
   const [markers, setMarkers] = useState([{
-    title: 'You Are Here',
+    name: 'You Are Here',
     address: '',
     coordinate: currentLocation,
   }]);
 
   useEffect(() => {
     let initialMarker = {
-      title: 'You Are Here',
+      name: 'You Are Here',
       address: '',
       coordinate: currentLocation,
     };
@@ -43,7 +43,7 @@ const MapScreen = ({ navigation }) => {
           latitude: location.coords.latitude,
           longitude: location.coords.longitude,
         };
-        
+
         initialMarker.coordinate = latlong;
         setCurrentLocation(latlong);
         setRegion({
@@ -84,8 +84,8 @@ const MapScreen = ({ navigation }) => {
       >
         <TouchableOpacity
           onPress={() => {
-            if(item.id) {
-              navigation.navigate('HomeScreen', {id: item.id}); // TODO: update to business's stamps list screen
+            if(index) {
+              navigation.navigate('HomeScreen', /*{id: item.id}*/); // TODO: update to business's stamps list screen
             } else {
               navigation.navigate('UserScreen');
             }
@@ -105,7 +105,7 @@ const MapScreen = ({ navigation }) => {
               fontWeight: '700',
             }}
           >
-            {item.title}
+            {item.name}
           </Text>
           <ScrollView>
           <Text
@@ -132,7 +132,7 @@ const MapScreen = ({ navigation }) => {
         {markers.map((marker, i) => (
           <Marker
             key={i}
-            title={marker.title}
+            title={marker.name}
             description={marker.address}
             coordinate={marker.coordinate}
             onPress={() => { jumpTo(i); }}
@@ -179,8 +179,7 @@ export default MapScreen;
 
 const testMarkers = [
   {
-    id: 0,
-    title: 'Boba Guys Culver City',
+    name: 'Boba Guys Culver City',
     address: '8820 Washington Blvd #107, Culver City, CA 90232',
     coordinate: {
       latitude: 34.0272141,
@@ -188,12 +187,67 @@ const testMarkers = [
     },
   },
   {
-    id: 1,
-    title: 'Wushiland Boba WCC',
+    name: 'Wushiland Boba WCC',
     address: '10250 Santa Monica Blvd Ste 2770, Los Angeles, CA 90067',
     coordinate: {
       latitude: 34.0593723,
       longitude: -118.4221478,
+    },
+  },
+  {
+    name: 'Redstraw',
+    address: '10250 Santa Monica Blvd, Los Angeles, CA 90067',
+    coordinate: {
+      latitude: 34.0594111,
+      longitude: -118.4374687,
+    },
+  },
+  {
+    name: 'Boba Time',
+    address: '11207 National Blvd, Los Angeles, CA 90064',
+    coordinate: {
+      latitude: 34.0274306,
+      longitude: -118.4469587,
+    },
+  },
+  {
+    name: "It's Boba Time",
+    address: '10946 Weyburn Ave, Los Angeles, CA 90024',
+    coordinate: {
+      latitude: 34.0624556,
+      longitude: -118.4642974,
+    },
+  },
+  {
+    name: 'Sharetea',
+    address: '1055 Broxton Ave, Los Angeles, CA 90024',
+    coordinate: {
+      latitude: 34.0624556,
+      longitude: -118.4642974,
+    },
+  },
+  {
+    name: 'Bubble Boba',
+    address: '2829 Ocean Park Blvd, Santa Monica, CA 90405',
+    coordinate: {
+      latitude: 34.008967,
+      longitude: -118.4987671,
+    },
+  },
+  {
+    name: 'Boba Lab',
+    address: '711 Pico Blvd, Santa Monica, CA 90405',
+    coordinate: {
+      latitude: 34.0339368,
+      longitude: -118.4457237,
+    },
+  },
+  {
+    name: 'Boba Tea & Me',
+    address: '1328 Wilshire Blvd, Santa Monica, CA 90403',
+    coordinate: {
+      latitude: 34.0210615,
+      longitude: -118.4932739,
     },
   },
 ];
