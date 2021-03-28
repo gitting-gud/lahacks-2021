@@ -40,6 +40,7 @@ router.get('/getNearbyBusinesses', async (req, res) => {
     const lat = req.query.lat, long = req.query.long, rad = req.query.radius;
     
     Business.find({
+      campaigns: {$exists: true, $ne: []},
       lat: {$exists: true},
       long: {$exists: true},
     }, function (err, results) {
