@@ -1,37 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, Text, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, Text, useWindowDimensions, ScrollView, TouchableOpacity } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
-const CarouselItem = ({item, index}) => {
-  <View
-    key={index}
-    style={{
-      width: '75%',
-      height: '75%',
-      backgroundColor: '#000',
-      padding: '10',
-      color: 'black',
-    }}
-  >
-    <Text
-      onPress={() => navigation.navigate('ViewBusinessScreen', {id: item.id})}
-      style={{
-        fontSize: 20,
-        fontWeight: '700',
-      }}
-    >
-      {item.title}
-    </Text>
-    <Text>{item.address}</Text>
-  </View>
-}
-
-const MapScreen = () => {
+const MapScreen = ({ navigation }) => {
   const mapRef = useRef(null);
   const carouselRef = useRef(null);
 
-  const [region, setRegion] = useState({});
+  const [region, setRegion] = useState({
+    latitude: 34.0686145,
+    longitude: -118.4450876,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
+  });
   const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
@@ -56,6 +37,48 @@ const MapScreen = () => {
   }
 
   const onRegionChange = (region) => setRegion(region);
+
+  const CarouselItem = ({item, index}) => {
+    return (
+      <View
+        key={index}
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: 5,
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => navigation.navigate('HomeScreen', {id: item.id})}
+          style={{
+            width: '90%',
+            height: '100%',
+            flex: 1,
+            alignItems: 'center',
+            borderRadius: 10,
+            borderWidth: 2,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: '700',
+            }}
+          >
+            {item.title}
+          </Text>
+          <ScrollView>
+          <Text
+            numberOfLines={1}
+            style={{flex: 1, textAlign: 'center',}}
+          >
+            {item.address}
+          </Text></ScrollView>
+        </TouchableOpacity>
+      </View>
+    );
+  };
 
   const dimensions = useWindowDimensions();
   return (
@@ -92,7 +115,7 @@ const MapScreen = () => {
           data={markers}
           renderItem={CarouselItem}
           sliderWidth={dimensions.width}
-          itemWidth={dimensions.width/2}
+          itemWidth={dimensions.width}
           onSnapToItem={i => { jumpTo(i); }}
         />
         <Pagination
