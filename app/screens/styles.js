@@ -18,4 +18,11 @@ export default StyleSheet.create({
         right: 0,
         bottom: 0,
     },
+    button: {
+        backgroundColor: '#FFF',
+        borderColor: '#0FF',
+        borderWidth: 2,
+        borderRadius: 15,
+        color: '#000',
+    }
 });

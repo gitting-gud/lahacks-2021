@@ -24,8 +24,30 @@ const HomeScreen = ({ navigation }) => {
           title="Login"
           onPress={() => navigation.navigate('UserScreen', /* { name: 'Jane' } */)}
           style={{width: '50%'}}
+          buttonStyle={{
+            backgroundColor: '#FFF',
+            borderColor: '#71AAFF',
+            borderWidth: 2,
+            borderRadius: 10,
+          }}
+          titleStyle={{
+            color: '#000',
+          }}
+          type="outline"
         />
-        <Button onPress={() => navigation.navigate('MapScreen')} />
+        <Button 
+          onPress={() => navigation.navigate('MapScreen')} 
+          buttonStyle={{
+            backgroundColor: '#FFF',
+            borderColor: '#71AAFF',
+            borderWidth: 2,
+            borderRadius: 30,
+          }}
+          titleStyle={{
+            color: '#000',
+          }}
+          type="outline"
+        />
       </View>
       <Text
         onPress={() => navigation.navigate('BizScreen', /* { name: 'Jane' } */)}
