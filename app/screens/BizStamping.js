@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import CameraObject from '../components/Camera';
 import { View, Text, Button } from 'react-native';
 import { Input } from 'react-native-elements';

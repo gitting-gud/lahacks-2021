@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
 
 const BizScreen = ({ navigation }) => {
   return (
@@ -8,17 +9,37 @@ const BizScreen = ({ navigation }) => {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-      <Text>This is the business screen!</Text>
+      <Text>Create a New Stamp Card!</Text>
       <Button
-      title="Go to HomeScreen"
+      title="Create New Stamp Card"
       onPress={() =>
-        navigation.navigate('HomeScreen', /* { name: 'Jane' } */)
-      }></Button>
+        navigation.navigate('NewStampScreen', /* { name: 'Jane' } */)
+      }
+      buttonStyle={{
+        backgroundColor: '#FFF',
+        borderColor: '#71AAFF',
+        borderWidth: 2,
+        borderRadius: 10,
+      }}
+      titleStyle={{
+        color: '#000',
+      }}
+      ></Button>
       <Button
-      title="Go to BizStampingScreen"
+      title="Stamp a Card"
       onPress={() =>
         navigation.navigate('BizStamping', /* { name: 'Jane' } */)
-      }></Button>
+      }
+      buttonStyle={{
+        backgroundColor: '#FFF',
+        borderColor: '#71AAFF',
+        borderWidth: 2,
+        borderRadius: 10,
+      }}
+      titleStyle={{
+        color: '#000',
+      }}
+      ></Button>
     </View>
   );
 }

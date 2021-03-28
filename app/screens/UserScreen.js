@@ -7,17 +7,20 @@ const StampCard = ({cardId, navigation}) => {
   const [cardContents, setCardContents] = useState({});
   const [businessNames, setBusinessNames] = useState("");
   const fetchCard = () => {
-    fetch(`http://192.168.1.3:4000/api/stampCards/getStampCard?stampCardId=${cardId}`)
+    fetch(`http://<yourIPv4Here>/api/stampCards/getStampCard?stampCardId=${cardId}`)
     .then(response => response.json())
     .then(data => setCardContents(data))
   }
 
   const fetchBusinesses = async () => {
-    cardContents.participants.forEach(async (business) => {
-      const response = await fetch(`http://192.168.1.3:4000/api/businesses/getBusiness?businessId=${business}`)
-      const json = await response.json();
-      setBusinessNames(businessNames + " " + json.name);
-    })
+    const businessIds = cardContents.participants || []
+    if(businessIds){
+      businessIds.forEach(async (business) => {
+        const response = await fetch(`http://<yourIPv4Here>:4000/api/businesses/getBusiness?businessId=${business}`)
+        const json = await response.json();
+        setBusinessNames(businessNames + " " + json.name);
+      })
+    }
   }
   useEffect(() => {
     fetchCard();
@@ -25,7 +28,7 @@ const StampCard = ({cardId, navigation}) => {
 
   useEffect(() => {
     fetchBusinesses();
-  },[cardContents])
+  }, [cardContents])
   return (
     <View>
       <Card>
@@ -57,7 +60,7 @@ const UserScreen = ({ navigation }) => {
   const testUserId = "605d735ca259bc2898290f31"
   const [activeCards, setActiveCards] = useState([]);
   const fetchUserCards = async () => {
-    const response = await fetch(`http://192.168.1.3:4000/api/users/getUserCards?user=${testUserId}`);
+    const response = await fetch(`http://<yourIPv4Here>:4000/api/users/getUserCards?user=${testUserId}`);
     const json = await response.json();
     setActiveCards(activeCards.concat(json));
   }

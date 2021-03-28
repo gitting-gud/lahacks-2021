@@ -33,6 +33,7 @@ import { View, StyleSheet, } from 'react-native'
 const StampCardScreen = ({ route, navigation }) => {
     const card = route.params.cardInfo;
     console.log(route)
+    const amountFilled = card.filled_stamps;
     const amountRemaining = card.num_stamps - card.filled_stamps;
     return (
         <View style={styles.container}>
@@ -43,8 +44,8 @@ const StampCardScreen = ({ route, navigation }) => {
                 {card.reward_details}
             </Text>
             <View style={styles.iconsContainer}>
-                {[...Array(card.filled_stamps)].map((i) => <Icon id={i} size={90} color="gold" name="star"/>)}
-                {[...Array(amountRemaining)].map(() => <Icon size={90} color="gray" name="star-border"/>)}
+                {[...Array(amountFilled)].map((i) => <Icon id={i} size={90} color="gold" name="star"/>)}
+                {[...Array(amountRemaining)].map((j) => <Icon size={90} color="gray" name="star-border"/>)}
             </View>
             <Text>Only {amountRemaining} to go!</Text>
             <Button 
